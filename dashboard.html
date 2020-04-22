@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COVID-19 Dashboard</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="db-container">
+        <div class="db-heading">
+            COVID-19 Dashboard
+            <hr class="db-sep" />
+          </div>
+          <div class="db-btns">
+            <a href="/dashboard"><button class="db-btn">Dashboard</button></a>
+            <a href="/graphs"><button class="db-btn">Graphs</button></a>
+            <a href="/all"><button class="db-btn">All States</button></a>
+            <button class="db-btn" onclick="clickHandler()">Search State</button>
+            <a href="/"><button class="db-btn">Home</button></a>
+          </div>
+          <div class="db-search">
+            <form action="/search">
+              <input type="text" id="search-state" placeholder="Enter your state here" name="state"></input>
+              <button class="search-btn" type="submit">Search</button>
+            </form>
+          </div>
+      <div class="db-content">
+        <div class="content-heading">
+          Precautions to take against COVID-19
+        </div>
+        <div class="content"><span id="prec">STAY</span> Home</div>
+        <div class="content"><span id="prec">KEEP</span> a safe distance</div>
+        <div class="content"><span id="prec">WASH</span> hands often</div>
+        <div class="content"><span id="prec">COVER</span> your cough</div>
+        <div class="content">
+          <span id="prec">SICK?</span> Call the helpline
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+        Developed by fusionmaster7
+      </div>      
+    <script type="text/javascript" src="./assets/dashboard.js"></script>
+  </body>
+</html>
