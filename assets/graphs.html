@@ -19,7 +19,7 @@
             <a href="./graphs.html"><button class="db-btn">Graphs</button></a>
             <a href="/all"><button class="db-btn">All States</button></a>
             <button class="db-btn" onclick="clickHandler()">Search State</button>
-            <a href="https://fusionmaster7.github.io/covid/"><button class="db-btn">Home</button></a>
+            <a href="https://fusionmaster7.github.io/covid"><button class="db-btn">Home</button></a>
           </div>
           <div class="db-search">
             <form action="/search">
@@ -27,22 +27,11 @@
               <button class="search-btn" type="submit">Search</button>
             </form>
           </div>
-      <div class="db-content">
-        <div class="content-heading">
-          Precautions to take against COVID-19
-        </div>
-        <div class="content"><span id="prec">STAY</span> Home</div>
-        <div class="content"><span id="prec">KEEP</span> a safe distance</div>
-        <div class="content"><span id="prec">WASH</span> hands often</div>
-        <div class="content"><span id="prec">COVER</span> your cough</div>
-        <div class="content">
-          <span id="prec">SICK?</span> Call the helpline
-        </div>
-      </div>
+      <canvas id="mychart"></canvas>
     </div>
-    <div class="footer">
-        Developed by fusionmaster7
-      </div>      
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="./graph.js"></script>
     <script type="text/javascript" src="./dashboard.js"></script>
   </body>
 </html>
