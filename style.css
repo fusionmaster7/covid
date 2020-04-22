@@ -284,6 +284,10 @@ body {
   padding: 5px;
 }
 
+#district-table {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .container {
     padding-left: 50px;

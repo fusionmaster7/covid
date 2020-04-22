@@ -22,10 +22,19 @@
             <a href="https://fusionmaster7.github.io/covid"><button class="db-btn">Home</button></a>
           </div>
           <div class="db-search">
-            <form action="/search">
+            <div style="display: flex;justify-content: center;">
               <input type="text" id="search-state" placeholder="Enter your state here" name="state"></input>
-              <button class="search-btn" type="submit">Search</button>
-            </form>
+              <button class="search-btn" onclick="renderDistricts()">Search</button>
+            </div>
+          </div>
+          <div class="states" id="district-table">
+            <div class="states-table-header">
+              <div class="states-heading">District Name</div>
+              <div class="states-heading">Active</div>
+              <div class="states-heading">Confirmed</div>
+              <div class="states-heading">Deceased</div>
+              <div class="states-heading">Recovered</div>
+            </div>
           </div>
       <div class="states">
         <div class="states-table-header">

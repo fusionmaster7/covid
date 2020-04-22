@@ -22,7 +22,34 @@ const renderState = (stateObj) => {
   recoveredDiv.classList.add("state");
   recoveredDiv.innerText = stateObj.recovered;
   stateDiv.appendChild(recoveredDiv);
-  document.getElementsByClassName("states")[0].appendChild(stateDiv);
+  document.getElementsByClassName("states")[1].appendChild(stateDiv);
+};
+
+const renderDistrict = (districtObj) => {
+  let districtDiv = document.createElement("div");
+  districtDiv.classList.add("states-table-header");
+  districtDiv.setAttribute("id", "state-row");
+  let nameDiv = document.createElement("div");
+  nameDiv.classList.add("state");
+  nameDiv.innerText = districtObj.district;
+  districtDiv.appendChild(nameDiv);
+  let activeDiv = document.createElement("div");
+  activeDiv.classList.add("state");
+  activeDiv.innerText = districtObj.active;
+  districtDiv.appendChild(activeDiv);
+  let confirmedDiv = document.createElement("div");
+  confirmedDiv.classList.add("state");
+  confirmedDiv.innerText = districtObj.confirmed;
+  districtDiv.appendChild(confirmedDiv);
+  let deceasedDiv = document.createElement("div");
+  deceasedDiv.classList.add("state");
+  deceasedDiv.innerText = districtObj.deceased;
+  districtDiv.appendChild(deceasedDiv);
+  let recoveredDiv = document.createElement("div");
+  recoveredDiv.classList.add("state");
+  recoveredDiv.innerText = districtObj.recovered;
+  districtDiv.appendChild(recoveredDiv);
+  document.getElementsByClassName("states")[0].appendChild(districtDiv);
 };
 
 const renderStates = async () => {
@@ -49,3 +76,21 @@ const renderStates = async () => {
 (async () => {
   renderStates();
 })();
+
+const renderDistricts = () => {
+  document.getElementById("district-table").style.display = "block";
+  const element = document.getElementsByClassName("states")[1];
+  element.style.display = "none";
+  const textField = document.getElementById("search-state");
+  axios
+    .get("https://api.covid19india.org/v2/state_district_wise.json")
+    .then((resp) => {
+      const myState = resp.data.find((e) => e.state === textField.value);
+      if (myState) {
+        myState.districtData.forEach((e) => {
+          let districtObj = { ...e };
+          renderDistrict(districtObj);
+        });
+      }
+    });
+};
