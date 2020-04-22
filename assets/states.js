@@ -22,7 +22,7 @@ const renderState = (stateObj) => {
   recoveredDiv.classList.add("state");
   recoveredDiv.innerText = stateObj.recovered;
   stateDiv.appendChild(recoveredDiv);
-  document.getElementsByClassName("states")[1].appendChild(stateDiv);
+  document.getElementById("states-table").appendChild(stateDiv);
 };
 
 const renderDistrict = (districtObj) => {
@@ -49,10 +49,12 @@ const renderDistrict = (districtObj) => {
   recoveredDiv.classList.add("state");
   recoveredDiv.innerText = districtObj.recovered;
   districtDiv.appendChild(recoveredDiv);
-  document.getElementsByClassName("states")[0].appendChild(districtDiv);
+  document.getElementById("district-data").appendChild(districtDiv);
 };
 
 const renderStates = async () => {
+  document.getElementById("states-table").style.display = "block";
+  document.getElementById("district-table").style.display = "none";
   const res = await axios.get(
     "https://api.covid19india.org/v2/state_district_wise.json"
   );
@@ -78,10 +80,11 @@ const renderStates = async () => {
 })();
 
 const renderDistricts = () => {
-  document.getElementById("district-table").style.display = "block";
-  const element = document.getElementsByClassName("states")[1];
-  element.style.display = "none";
+  const element = document.getElementById("district-table");
+  element.style.display = "block";
+  document.getElementById("states-table").style.display = "none";
   const textField = document.getElementById("search-state");
+  document.getElementById("district-data").innerHTML = "";
   axios
     .get("https://api.covid19india.org/v2/state_district_wise.json")
     .then((resp) => {
@@ -91,6 +94,8 @@ const renderDistricts = () => {
           let districtObj = { ...e };
           renderDistrict(districtObj);
         });
+      } else {
+        alert("Please check the spelling");
       }
     });
 };

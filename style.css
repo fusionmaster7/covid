@@ -288,6 +288,10 @@ body {
   display: none;
 }
 
+#states-table {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .container {
     padding-left: 50px;
