@@ -1,3 +1,7 @@
+console.log("States here");
+const clickHandler = () => {
+  document.getElementsByClassName("db-search")[0].style.display = "block";
+};
 const renderState = (stateObj) => {
   let stateDiv = document.createElement("div");
   stateDiv.classList.add("states-table-header");

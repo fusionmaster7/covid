@@ -291,6 +291,17 @@ body {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
+#git {
+  color: white;
+}
+
+#git:visited {
+  color: white;
+}
 @media screen and (max-width: 768px) {
   .container {
     padding-left: 50px;

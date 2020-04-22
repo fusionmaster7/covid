@@ -4,8 +4,6 @@ const clickHandler = () => {
 console.log("Graphs here");
 
 const backgroundColor = Array(32).fill("#fa5dbb");
-Chart.defaults.global.defaultFamily = "Lato";
-Chart.defaults.global.defaultColor = "red";
 
 const renderBarGraph = (states, stateData) => {
   let ctx = document.getElementById("bar-chart").getContext("2d");
